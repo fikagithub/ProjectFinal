@@ -11,57 +11,30 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-//Route Bawaan Laravel
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Blade Template Engine
-Route::get('/mahasiswa', function(){
-    $nama='Fika Adilah';
-    $nilai=75;
-    return view('mahasiswa',compact('nama','nilai'));
+Route::get('mahasiswa', function () {
+    $arrMahasiswa = [
+        "Farah Salsabila", "Ichsana Sabila", "Deby Zamzam Firdaus", "Fika Adilah",
+    ];
+    return view('mahasiswa')->with('mahasiswa', $arrMahasiswa);
 });
 
-Route::get('/mahasiswa', function(){
-    $nama='<u>Fika Adilah</u>';
-    $nilai=75;
-    return view('mahasiswa',compact('nama','nilai'));
+Route::get('dosen', function () {
+    $arrDosen = [
+        "Pak Amirullah", "Pak Abdi", "Pak Rizka", "Pak Mahlil",
+    ];
+    return view('dosen')->with('dosen', $arrDosen);
 });
 
-//Kondisi If Else
-Route::get('/mahasiswa', function(){
-     $nama='Fika Adilah';
-     $nilai=105;
-     return view('mahasiswa',compact('nama','nilai'));
+Route::get('gallery', function () {
+    return view('gallery');
 });
 
-//Kondisi Switch
-Route::get('/mahasiswa', function(){
-    $nama='Fika Adilah';
-    $nilai=95;
-    return view('mahasiswa',compact('nama','nilai'));
-});
-
-//Perulangan Foreach
-Route::get('/mahasiswa', function(){
-    $nama='Fika Adilah';
-    $nilai=[80,64,30,76,95];
-    return view('mahasiswa',compact('nama','nilai'));
-});
-
-//Perulangan Forelse
-Route::get('/mahasiswa', function(){
-    $nama='Fika Adilah';
-    $nilai=[];
-    return view('mahasiswa',compact('nama','nilai'));
-});
-
-//Perintah Continue dan Break
-Route::get('/mahasiswa', function(){
-    $nama = 'Fika Adilah';
-    $nilai = [80,64,30,76,95];
-    return view('mahasiswa',compact('nama','nilai'));
+Route::get('admin', function () {
+    return view('admin');
 });
